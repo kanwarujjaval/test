@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/kanwarujjaval/test/issues"
   },
-  "homepage": "https://github.com/kanwarujjaval/test#readme"
+  "homepage": "https://github.com/kanwarujjaval/test#readme",
+  "dependencies": {
+    "hapi": "^18.0.0",
+    "inert": "^5.1.2",
+    "vision": "^5.4.4"
+  }
 }
