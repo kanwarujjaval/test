@@ -22,20 +22,7 @@ class createContact extends Handler {
          * 
          * SELECT id, name, email FROM contact where MATCH(name, email) AGAINST('ituyiu');
          */
-        // const [rows, fields] = await this.h.sql.query(this.h.parse`SELECT id, name, email, phonenumber FROM contact where MATCH(name, email) AGAINST(${searchKey})`);
-
-        // SELECT From only same user;
-        console.log(`
-        ;WITH nx AS        (
-            SELECT MATCH(name, email) AGAINST('(asd*) ("asd")' IN BOOLEAN MODE) score, 
-            id, phonenumber, name, email, userId
-            FROM contact
-            having score>0
-            ORDER BY score 
-            DESC LIMIT 0, 10;
-        )
-        SELECT id, phonenumber, userId FROM as x
-        `)
+        
         const [rows, fields] = await this.h.sql.query(`
             SELECT MATCH(name, email) AGAINST('(${searchKey}*) ("${searchKey}")' IN BOOLEAN MODE) score, 
             id, phonenumber, name, email, userId
